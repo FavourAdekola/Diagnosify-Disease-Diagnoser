@@ -1,5 +1,5 @@
 import pandas as pd
-from transformers import GPT2Tokenizer, GPT2LMHeadModel, Trainer, TrainingArguments, DataCollatorForLanguageModeling
+from transformers import BioGptForCausalLM, BioGptTokenizer, Trainer, TrainingArguments, DataCollatorForLanguageModeling
 import torch
 from torch.utils.data import Dataset
 
@@ -24,7 +24,7 @@ class TextDataset(Dataset):
 
 def preprocessing():
     # Load the CSV file
-    df = pd.read_csv('C:/Projects/Python/Disease Diagnosis RAG Agent/disease_dataset.csv')
+    df = pd.read_csv('C:/Projects/Big Boy Coding/New folder/Disease-Diagnosis-RAG-Agent/disease_dataset.csv')
 
     # Create a text-based dataset
     formatted_data = []
@@ -37,8 +37,8 @@ def preprocessing():
 
 def training():
     # Load the tokenizer and model
-    tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-    model = GPT2LMHeadModel.from_pretrained("gpt2")
+    tokenizer = BioGptTokenizer.from_pretrained("microsoft/biogpt")
+    model = BioGptForCausalLM.from_pretrained("microsoft/biogpt")
     
     tokenizer.pad_token = tokenizer.eos_token
 
@@ -52,7 +52,7 @@ def training():
     training_args = TrainingArguments(
         output_dir="./results",
         num_train_epochs=3,
-        per_device_train_batch_size=2,
+        per_device_train_batch_size=10,
         save_steps=10_000,
         save_total_limit=2,
     )
@@ -73,6 +73,11 @@ def training():
 
     # Train the model
     trainer.train()
+
+    model_save_path = "./trained_model"
+    model.save_pretrained(model_save_path)
+    tokenizer.save_pretrained(model_save_path)
+    print(f"Model and tokenizer saved to {model_save_path}")
 
     # Generate text for testing
     input_text = "Symptoms: Fever, Dry Cough, Fatigue"
