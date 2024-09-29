@@ -1,11 +1,11 @@
-#from transformers import BioGptForCausalLM, BioGptTokenizer, BioGptModel
+#from transformers import BioGptForCausalLM, BioGptTokenizer
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import torch
 
 # Load BioGPT tokenizer and model
 
-tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-model = GPT2LMHeadModel.from_pretrained("gpt2")
+tokenizer = GPT2Tokenizer.from_pretrained("./trained_model")
+model = GPT2LMHeadModel.from_pretrained("./trained_model")
 
 tokenizer.pad_token = tokenizer.eos_token
 
@@ -14,13 +14,13 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 # Sample input text (e.g., medical symptoms)
-input_text = "A patient has been found with a sore throat and a fever, what disease might they have?"
+input_text = "A patient has CHILLS, VOMITING, HIGH FEVER, SWEATING, HEADACHE, NAUSEA, diarrhoea, MUSCLE PAIN. Can you give me ONE disease they may have?"
 
 # Tokenize input text
 inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True).to(device)
 
 # Generate text
-output = model.generate(inputs["input_ids"], attention_mask=inputs["attention_mask"], do_sample = True, max_length=150, no_repeat_ngram_size=2,num_beams=5, early_stopping=True, pad_token_id=tokenizer.pad_token_id, temperature=0.5,                          # Lower temperature for more focused responses
+output = model.generate(inputs["input_ids"], attention_mask=inputs["attention_mask"], do_sample = True, max_length=60, no_repeat_ngram_size=2,num_beams=5, early_stopping=True, pad_token_id=tokenizer.pad_token_id, temperature=0.5,                          # Lower temperature for more focused responses
     top_p=0.9)
 
 # Decode and print the generated text
