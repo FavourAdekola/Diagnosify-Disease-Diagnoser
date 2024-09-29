@@ -14,7 +14,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 # Sample input text (e.g., medical symptoms)
-input_text = "A patient has CHILLS, VOMITING, HIGH FEVER, SWEATING, HEADACHE, NAUSEA, diarrhoea, MUSCLE PAIN. Can you give me ONE disease they may have?"
+input_text = "A patient has CHILLS, VOMITING, HIGH FEVER, SWEATING, HEADACHE, NAUSEA, DIARRHOEA, MUSCLE PAIN. Can you give me ONE disease they may have?"
 
 # Tokenize input text
 inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True).to(device)
