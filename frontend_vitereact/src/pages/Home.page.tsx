@@ -34,8 +34,7 @@ export function HomePage() {
       setLoading(false); // Set loading to false after request
     }
   };
-
-  return (
+return (
     <>
       <Welcome />
 

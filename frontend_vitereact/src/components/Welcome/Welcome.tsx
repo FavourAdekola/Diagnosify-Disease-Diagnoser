@@ -11,7 +11,10 @@ export function Welcome() {
         </Text>
       </Title>
       <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
-        A HackGT11 project for the Patient Safety Technology Challenge.
+        Diagnosify is a cutting-edge tool that uses artificial intelligence to analyze your symptoms and provide potential diagnoses. Simply describe your medical symptoms in detail, and let our AI model, trained on extensive medical data, suggest possible conditions.
+      </Text>
+      <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
+        A HackGT11 Project.
       </Text>
     </>
   );

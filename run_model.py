@@ -29,12 +29,14 @@ def predict():
                             early_stopping=True, pad_token_id=tokenizer.pad_token_id, temperature=0.5,
                             top_p=0.9)
 
-# Decode and print the generated text
-print("Tokenized Input IDs:", inputs["input_ids"])
+    # Decode and return the generated text
+    generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+    prompt_length = len(input_text)
+    if generated_text.startswith(input_text):
+    # Slice the generated text to remove the prompt
+        generated_text = generated_text[prompt_length:].strip()
+        generated_text = generated_text.split(",")
+    return jsonify({"output_text": generated_text[0]})
 
-# Print the generated output IDs before decoding
-print("Generated Output IDs:", output)
-
-# Decode and print the generated text
-generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-print("Generated Text:", generated_text)
+if __name__ == '__main__':
+    app.run(debug=True)
