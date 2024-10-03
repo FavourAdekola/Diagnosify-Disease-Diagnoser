@@ -1,9 +1,3 @@
-<video width="560" height="315" controls>
-  <source src="(https://www.youtube.com/watch?v=JDVWUwOABvs&ab_channel=RiceGrainInvasion)" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-
 ## Inspiration
 Our inspiration for creating this web app stems from a desire to reduce medical errors and enhance patient care.  Additionally, one of our team members was sick for the duration of the hackathon and was curious if they could get an accurate diagnosis even without a doctor, so all of these components led to us building Diagnosify.
 
