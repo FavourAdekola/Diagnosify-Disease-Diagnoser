@@ -1,4 +1,7 @@
-<iframe width="1280" height="720" src="[https://youtu.be/JDVWUwOABvs]" frameborder="0" allowfullscreen></iframe>
+<video width="560" height="315" controls>
+  <source src="(https://www.youtube.com/watch?v=JDVWUwOABvs&ab_channel=RiceGrainInvasion)" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 
 ## Inspiration
