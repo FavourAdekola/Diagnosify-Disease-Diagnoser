@@ -1,4 +1,4 @@
-[![Watch the video](https://img.youtube.com/vi/_JDVWUwOABvs/0.jpg)](https://www.youtube.com/watch?v=JDVWUwOABvs)
+[![Watch the video](https://img.youtube.com/vi/JDVWUwOABvs/0.jpg)](https://www.youtube.com/watch?v=JDVWUwOABvs)
 
 ## Inspiration
 Our inspiration for creating this web app stems from a desire to reduce medical errors and enhance patient care.  Additionally, one of our team members was sick for the duration of the hackathon and was curious if they could get an accurate diagnosis even without a doctor, so all of these components led to us building Diagnosify.
